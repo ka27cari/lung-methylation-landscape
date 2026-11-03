@@ -1,0 +1,259 @@
+random_seed: 20260906
+representation:
+  name: counterfactual_a0.02_k10_rank
+  anchor_fraction: 0.02
+  control_neighbors: 10
+  anchor_mode: stability_null
+anchor_audit:
+  fractions:
+  - 0.005
+  - 0.01
+  - 0.015
+  - 0.0175
+  - 0.02
+  - 0.0225
+  - 0.025
+  - 0.03
+  - 0.05
+  - 0.075
+  - 0.1
+local_contexts:
+  k_grid:
+  - 4
+  - 6
+  min_context_n: 40
+nmf:
+  ranks:
+  - 12
+  - 14
+  - 16
+  - 20
+  - 24
+  seeds:
+  - 11
+  - 29
+  - 47
+  max_iter: 500
+  parallel_jobs: 4
+recurrence:
+  within_context_cosines:
+  - 0.8
+  min_distinct_ranks: 5
+program_selection:
+  require_all_ranks: true
+  min_seed_stability: 0.95
+  near_duplicate_cosine: 0.99
+  dual_uncovered_limit: 20
+  reporting_order_selection_ranks:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 6
+  - 7
+  - 8
+  - 9
+  - 5
+  stable_dictionary_role: reproducible_program_dictionary
+  primary_basis_role: parsimonious_landscape_basis
+  basis_interpretation: dictionary members outside the primary basis remain discovered
+    reproducible programs and are retained for sensitivity analysis
+state_resolution:
+  K_grid:
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  starts_per_K: 96
+  parallel_jobs: 1
+  typical_terminal_support_min: 20
+terminal_definition:
+  partial_ot_masses:
+  - 0.9
+  - 0.95
+  - 0.99
+  min_prediagnostic_n: 20
+  max_control_fraction: 0.3333333333333333
+  min_terminal_count: 2
+  occupancy_gain_credible_level: 0.95
+  start_occupancy_draws: 20000
+  start_occupancy_draw_seed_rule: K*100000 + start
+  consensus_occupancy_draws: 30000
+  consensus_occupancy_draw_seed: 11000
+  primary_partial_ot_mass: 0.95
+  destination_rule: primary_mass_only
+consensus:
+  linkage: average
+  terminal_identity_jaccard_threshold: 0.5
+  terminal_identity_majority_fraction: 0.5
+  mode_cut_min: 2
+  mode_cut_max: 12
+  basin_rule: coarsest hierarchical cut with a source-admissible basin whose every
+    consensus terminal matches a terminal in >50% of member starts at Jaccard >0.5;
+    if multiple, choose largest then strongest identity support
+K_selection:
+  rule: finest_typically_supported_resolution
+posterior:
+  tau_grid:
+  - 0.08
+  - 0.09
+  - 0.1
+  - 0.11
+  - 0.12
+  - 0.13
+  - 0.14
+  - 0.15
+  - 0.16
+  - 0.17
+  - 0.18
+  - 0.19
+  - 0.2
+  - 0.21
+  - 0.22
+  - 0.23
+  - 0.24
+  - 0.25
+  - 0.26
+  - 0.27
+  - 0.28
+  - 0.29
+  - 0.3
+  - 0.31
+  - 0.32
+  - 0.33
+  - 0.34
+  - 0.35
+  - 0.36
+  - 0.37
+  - 0.38
+  - 0.39
+  - 0.4
+  - 0.41
+  - 0.42
+  - 0.43
+  - 0.44
+  - 0.45
+  - 0.46
+  - 0.47
+  - 0.48
+  - 0.49
+  - 0.5
+  - 0.51
+  - 0.52
+  - 0.53
+  - 0.54
+  - 0.55
+  - 0.56
+  - 0.57
+  - 0.58
+  - 0.59
+  - 0.6
+  - 0.61
+  - 0.62
+  - 0.63
+  - 0.64
+  - 0.65
+  - 0.66
+  - 0.67
+  - 0.68
+  - 0.69
+  - 0.7
+  - 0.71
+  - 0.72
+  - 0.73
+  - 0.74
+  - 0.75
+  - 0.76
+  - 0.77
+  - 0.78
+  - 0.79
+  - 0.8
+  - 0.81
+  - 0.82
+  - 0.83
+  - 0.84
+  - 0.85
+  - 0.86
+  - 0.87
+  - 0.88
+  - 0.89
+  - 0.9
+  - 0.91
+  - 0.92
+  - 0.93
+  - 0.94
+  - 0.95
+  - 0.96
+  - 0.97
+  - 0.98
+  - 0.99
+  - 1.0
+  min_control_nonterminal_median: null
+  selection_rule: minimize source leave-one-out binary negative log-likelihood for
+    final terminal vs non-terminal hard membership
+sinkhorn_route:
+  epsilon: 0.1
+  epsilon_sensitivity:
+  - 0.05
+  - 0.1
+  - 0.2
+  - 0.4
+  net_current_mass_fraction: 0.95
+  max_iter: 50000
+  tol: 1.0e-08
+bayesian_me:
+  draws: 10000
+  prior_variance: 10.0
+  inverse_gamma_a0: 2.0
+  inverse_gamma_b0: 1.0
+  support_probability: 0.975
+  covariate_configs:
+  - id: C_AS
+    age: true
+    sex: true
+    smoking_status: false
+    smoking_amount: false
+    blood_pcs: 0
+    origin: true
+  - id: C_ASS
+    age: true
+    sex: true
+    smoking_status: true
+    smoking_amount: false
+    blood_pcs: 0
+    origin: true
+  - id: C_ASSA
+    age: true
+    sex: true
+    smoking_status: true
+    smoking_amount: true
+    blood_pcs: 0
+    origin: true
+  - id: C_ASB3
+    age: true
+    sex: true
+    smoking_status: false
+    smoking_amount: false
+    blood_pcs: 3
+    origin: true
+  - id: C_ASSB3
+    age: true
+    sex: true
+    smoking_status: true
+    smoking_amount: false
+    blood_pcs: 3
+    origin: true
+  - id: C_FULL
+    age: true
+    sex: true
+    smoking_status: true
+    smoking_amount: true
+    blood_pcs: 3
+    origin: true
+  primary_selection_rule: 'Primary model adjusts for age, sex, smoking status, smoking amount and cohort; inferred leukocyte composition is retained as a lineage-associated feature and is not included as a covariate.'
+  terminal_conditioning: raw frozen terminal posterior as a fractional/power-likelihood
+    weight, rescaled to Kish effective sample size; pooled fit uses unit weights
+  primary_config: C_ASSA

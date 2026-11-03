@@ -1,0 +1,23 @@
+{
+  "external_auc_control_aligned": 0.7114285714285714,
+  "external_auc_unaligned_reference": 0.6651428571428571,
+  "external_samples": 85,
+  "external_cases": 35,
+  "external_controls": 50,
+  "program_by_route_direction_concordance": "31/36",
+  "terminal_aware_longitudinal_spearman": 0.667004048582996,
+  "pooled_longitudinal_spearman": 0.32246963562753034,
+  "program_blood_geometry_spearman": 0.3935977066411849,
+  "program_blood_geometry_permutation_p": 0.005198960207958408,
+  "primary_ME_supported": [
+    "T1:ME0",
+    "T1:ME3",
+    "T2:ME2",
+    "T4:ME0",
+    "T4:ME1"
+  ],
+  "private_inputs_included": false,
+  "full_discovery_rerun": false,
+  "R_figures_rerun": false,
+  "full_python_pipeline_completed_with_cached_NMF": true
+}

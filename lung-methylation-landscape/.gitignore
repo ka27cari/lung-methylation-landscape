@@ -1,0 +1,20 @@
+# Controlled research inputs and generated files
+/rebuild/
+/data/raw/
+/data/private/
+/outputs/
+/results/
+/figure_source_cache_export/
+**/object/
+**/*.rds
+**/*.RData
+**/*.rda
+**/.Rhistory
+**/.Rproj.user/
+**/__pycache__/
+**/.pytest_cache/
+**/.venv/
+*.pyc
+.env
+.env.*
+.DS_Store
