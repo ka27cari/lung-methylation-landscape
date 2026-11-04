@@ -2,6 +2,8 @@
 
 Research code for *Blood methylation resolves heterogeneous hematopoietic remodeling before lung cancer diagnosis*.
 
+![landscape](docs/graphical_abstract.png)
+
 This repository contains Python landscape analysis, cohort R scripts, plotting code
 and utilities for extracting numerical Figure Source Data. **It does not contain
 participant-level datasets**. Figure Source Data are intended for separate journal submission.
